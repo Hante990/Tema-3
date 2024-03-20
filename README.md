@@ -201,98 +201,163 @@ El método de Gauss-Seidel es una técnica iterativa utilizada para resolver sis
 
  import java.util.Scanner;
 
-public class Main {
- 
+public class GaussSeidel {
+
     public static void main(String[] args) {
-      
-        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese el primer punto inicial: ");
-        double x0 = input.nextDouble();
+        System.out.print("Ingrese el número de incógnitas: ");
+        int n = scanner.nextInt();
 
-        System.out.print("Ingrese el segundo punto inicial: ");
-        double x1 = input.nextDouble();
+        double[][] A = new double[n][n];
+        double[] b = new double[n];
+        double[] x = new double[n];
+        double[] xAnterior = new double[n];
 
-        System.out.print("Ingrese el máximo de iteraciones: ");
-        int maxIterations = input.nextInt();
-
-        System.out.print("Ingrese el error permitido: ");
-        double error = input.nextDouble();
-
-        double root = secant(x0, x1, maxIterations, error);
-        System.out.println("La raíz de la función es: " + root);
-    }
-
-    public static double secant(double x0, double x1, int maxIterations, double error) {
-        for (int i = 0; i < maxIterations; i++) {
-            double fx0 = f(x0);
-            double fx1 = f(x1);
-
-            if (Math.abs(fx1 - fx0) < error) {
-                return x1;
+        System.out.println("Ingrese los elementos de la matriz de coeficientes:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = scanner.nextDouble();
             }
-
-            double x2 = x1 - (fx1 * (x1 - x0)) / (fx1 - fx0);
-
-            x0 = x1;
-            x1 = x2;
         }
 
-        return x1;
-    }
+        System.out.println("Ingrese los valores del vector de términos independientes:");
+        for (int i = 0; i < n; i++) {
+            b[i] = scanner.nextDouble();
+        }
 
-    public static double f(double x) {
-        
-        return x*x - 4; 
+        System.out.println("Ingrese las aproximaciones iniciales:");
+        for (int i = 0; i < n; i++) {
+            x[i] = scanner.nextDouble();
+        }
+
+        double epsilon = 0.0001;
+        int iteracionesMaximas = 1000;
+        int iteracion = 0;
+
+        while (iteracion < iteracionesMaximas) {
+            for (int i = 0; i < n; i++) {
+                xAnterior[i] = x[i];
+            }
+
+            for (int i = 0; i < n; i++) {
+                double suma = 0.0;
+                for (int j = 0; j < n; j++) {
+                    if (j != i) {
+                        suma += A[i][j] * x[j];
+                    }
+                }
+                x[i] = (b[i] - suma) / A[i][i];
+            }
+
+            double error = 0.0;
+            for (int i = 0; i < n; i++) {
+                error += Math.abs(x[i] - xAnterior[i]);
+            }
+
+            if (error < epsilon) {
+                break;
+            }
+
+            iteracion++;
+        }
+
+        System.out.println("Las soluciones del sistema de ecuaciones son:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("x[" + i + "] = " + x[i]);
+        }
     }}
     
-<h2 align = "center"> <font font face = "forte">  4. Newton </h2>
+<h2 align = "center"> <font font face = "forte">  4. Jacobi </h2>
 
 <h3> <font font face = "arial"> DESCRIPCIÓN: </h3>
 
-El método de Newton, también conocido como método de Newton-Raphson, es un algoritmo utilizado para encontrar raíces de una función. Este método requiere conocer el valor de la primera derivada de la función en el punto de estudio. A continuación se detallan los pasos del método de Newton:
+El método de Jacobi es un algoritmo iterativo utilizado para resolver sistemas de ecuaciones lineales. En este método, se descompone la matriz de coeficientes del sistema en una suma de una matriz diagonal y dos matrices complementarias. Luego, se utiliza esta descomposición para iterar y encontrar soluciones aproximadas para el sistema de ecuaciones.
 
-<h3> <font font face = "arial">Pasos del Método de Bisección:</h3>
-<h5>Selección del punto inicial:</h5> Se elige un punto inicial cercano a la raíz deseada.
-<h5>Cálculo de la pendiente:</h5> Se calcula la pendiente de la recta tangente a la curva en el punto seleccionado.
-<h5>Determinación del siguiente punto:</h5> Se determina el siguiente punto de iteración utilizando la fórmula: x_{n+1} = x_n - f(x_n) / f'(x_n), donde f'(x) es la derivada de la función en x.
-<h5>Convergencia hacia la raíz:</h5> Se repiten los pasos anteriores hasta alcanzar la precisión deseada o cumplir un criterio de convergencia.
+<h3> <font font face = "arial">Pasos del método de Jacobi:</h3>
+<h5>Descomposición de la matriz: </h5><li> Descomponer la matriz de coeficientes del sistema en una matriz diagonal 
+D y dos matrices complementarias L y U, de forma que = ++A=D+L+U, donde:</li>
+<li>D es la matriz diagonal que contiene los elementos diagonales de A.
+<li>L es la matriz triangular inferior con ceros en la diagonal.</li>
+<li>U es la matriz triangular superior con ceros en la diagonal.</li>
+<h5>Inicialización: </h5><li>Inicializar un vector de soluciones inicial x(0).</li>
+<li>Establecer un criterio de convergencia, como una tolerancia ϵ o un número máximo de iteraciones.</li>
+<h5>Iteración: </h5><li>Establecer un criterio de convergencia, como una tolerancia o un número máximo de iteraciones.</li>
+<li>Verificar si se ha alcanzado la precisión deseada o el número máximo de iteraciones.</li>
+<h5>Criterio de Parada: </h5><li>Verificar si se ha alcanzado la convergencia comparando la diferencia entre las soluciones actuales y las anteriores con la tolerancia establecida.</li>
+<li>Detener las iteraciones si se cumple el criterio de convergencia o se alcanza el número máximo de iteraciones.</li>
+<h5>Obtencion de soluciones:</h5> <li>Las soluciones aproximadas obtenidas en la última iteración se consideran como las soluciones del sistema de ecuaciones lineales.</li>
    
 <h5> <font font face = "arial"> <b> <i> Ejemplo en código. </i> </b> </h5>
 
-public class MetodoNewton {
+import java.util.Scanner;
 
-    public static double epsilon = 0.0001; 
-
-    //  f(x) = cos(x) - x
-    public static double funcion(double x) {
-        return Math.cos(x) - x;
-    }
-
-    // Calculamos la derivada de la función
-    public static double derivada(double x) {
-        return -Math.sin(x) - 1;
-    }
-
-   
-    public static double metodoNewton(double xInicial) {
-        double xActual = xInicial;
-        double xSiguiente;
-
-        do {
-            xSiguiente = xActual - funcion(xActual) / derivada(xActual);
-            xActual = xSiguiente;
-        } while (Math.abs(funcion(xActual)) > epsilon);
-
-        return xActual;
-    }
+public class Jacobi {
 
     public static void main(String[] args) {
-        double xInicial = 0.5; // Valor inicial de x
-        double solucion = metodoNewton(xInicial);
-        System.out.println("La solución aproximada es: " + solucion);
-    }}
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Ingrese el número de incógnitas: ");
+        int n = scanner.nextInt();
+
+        double[][] A = new double[n][n];
+        double[] b = new double[n];
+        double[] x = new double[n];
+        double[] xAnterior = new double[n];
+
+        System.out.println("Ingrese los elementos de la matriz de coeficientes:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = scanner.nextDouble();
+            }
+        }
+
+        System.out.println("Ingrese los valores del vector de términos independientes:");
+        for (int i = 0; i < n; i++) {
+            b[i] = scanner.nextDouble();
+        }
+
+        System.out.println("Ingrese las aproximaciones iniciales:");
+        for (int i = 0; i < n; i++) {
+            x[i] = scanner.nextDouble();
+        }
+
+        double epsilon = 0.0001;
+        int iteracionesMaximas = 1000;
+        int iteracion = 0;
+
+        while (iteracion < iteracionesMaximas) {
+            for (int i = 0; i < n; i++) {
+                xAnterior[i] = x[i];
+            }
+
+            for (int i = 0; i < n; i++) {
+                double suma = 0.0;
+                for (int j = 0; j < n; j++) {
+                    if (j != i) {
+                        suma += A[i][j] * xAnterior[j];
+                    }
+                }
+                x[i] = (b[i] - suma) / A[i][i];
+            }
+
+            double error = 0.0;
+            for (int i = 0; i < n; i++) {
+                error += Math.abs(x[i] - xAnterior[i]);
+            }
+
+            if (error < epsilon) {
+                break;
+            }
+
+            iteracion++;
+        }
+
+        System.out.println("Las soluciones del sistema de ecuaciones son:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("x[" + i + "] = " + x[i]);
+        }
+    }}
     
 
 
