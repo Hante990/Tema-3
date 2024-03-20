@@ -187,15 +187,15 @@ El método de Gauss-Seidel es una técnica iterativa utilizada para resolver sis
 <h3> <font font face = "arial">Pasos de Gauss-Seidel:</h3>
 <h5>Inicialización de las Variables: </h5> Se comienza con una estimación inicial de las soluciones del sistema de ecuaciones lineales.
 <h5>Iteración:</h5>Para cada ecuación en el sistema:
-Utilizar los valores más recientes de las variables ya calculadas.
-Resolver la ecuación para encontrar una nueva estimación de la variable.
-Actualizar el valor de la variable con la nueva estimación.
-Repetir este proceso para todas las ecuaciones del sistema en cada iteración.
-<h5>Criterio de parada:</h5>Establecer un criterio de convergencia, como una tolerancia o un número máximo de iteraciones.
-Verificar si se ha alcanzado la precisión deseada o el número máximo de iteraciones.
-<h5>Convergencia:</h5> Comprobar si el método converge hacia la solución del sistema de ecuaciones lineales.
-Ajustar los parámetros, como la elección inicial y la precisión, si es necesario para mejorar la convergencia.
-<h5>Obtencion de soluciones:</h5> Una vez que se alcanza la convergencia, las soluciones obtenidas en la última iteración se consideran como las soluciones aproximadas del sistema de ecuaciones lineales.
+<li>Utilizar los valores más recientes de las variables ya calculadas.</li>
+<li>Resolver la ecuación para encontrar una nueva estimación de la variable.</li>
+<li>Actualizar el valor de la variable con la nueva estimación.</li>
+<li>Repetir este proceso para todas las ecuaciones del sistema en cada iteración.</li>
+<h5>Criterio de parada:</h5><li>Establecer un criterio de convergencia, como una tolerancia o un número máximo de iteraciones.</li>
+<li>Verificar si se ha alcanzado la precisión deseada o el número máximo de iteraciones.</li>
+<h5>Convergencia:</h5><li> Comprobar si el método converge hacia la solución del sistema de ecuaciones lineales.</li>
+<li>Ajustar los parámetros, como la elección inicial y la precisión, si es necesario para mejorar la convergencia.</li>
+<h5>Obtencion de soluciones:</h5> <li>Una vez que se alcanza la convergencia, las soluciones obtenidas en la última iteración se consideran como las soluciones aproximadas del sistema de ecuaciones lineales.</li>
    
 <h5> <font font face = "arial"> <b> <i> Ejemplo en código. </i> </b> </h5>
 
