@@ -15,9 +15,9 @@ Realizado por:
                                 <li> <a href="#Competencia del TEMA"> Competencia del TEMA </a> </li>
                                 <li> <a href="#TEMARIO"> Temario </a> </li>  
                             </ul>
-     <li> <a href="#Métodos numéricos para encontrar las raíces de ecuaciones que se encuentran en nuestro repositorio"> Métodos numéricos para encontrar las raíces </a> <br> </li>
+     <li> <a href="#Métodos numéricos para encontrar las raíces de ecuaciones que se encuentran en nuestro repositorio"> Sistemas de ecuaciones </a> <br> </li>
                             <ul class="subindice"> 
-                                <li> <a href="#Método de Bisección"> Método de Bisección. </a> </li>
+                                <li> <a href="#Método de Bisección"> Eliminación-Gaussiana </a> </li>
                                 <li> <a href="#Método de la Falsa Posición"> Método de la Falsa Posición. </a> </li>
                                 <li> <a href="#Método de la Secante"> Método de la Secante. </a> </li> 
                                 <li> <a href="#Método de Newton-Raphson"> Método de Newton-Raphson. </a> </li> 
