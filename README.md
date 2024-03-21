@@ -14,14 +14,13 @@ Realizado por:
                             <ul class="subindice"> 
                                 <li> <a href="#Competencia de la Asignatura"> Competencia de la Asignatura </a> </li>
                                 <li> <a href="#Competencia del tema"> Competencia del TEMA </a> </li>
-                                <li> <a href="#TEMARIO"> Temario </a> </li>  
                             </ul>
      <li> <a href="#Métodos numéricos para encontrar las raíces de ecuaciones que se encuentran en nuestro repositorio"> Sistemas de ecuaciones </a> <br> </li>
                             <ul class="subindice"> 
-                                <li> <a href="#Método de Bisección"> Eliminación-Gaussiana </a> </li>
-                                <li> <a href="#Método de la Falsa Posición"> Gauss-Jordan </a> </li>
-                                <li> <a href="#Método de la Secante"> Gauss-Seidel </a> </li> 
-                                <li> <a href="#Método de Newton-Raphson"> Método de Jacobi </a> </li> 
+                                <li> <a href="#Eliminacion"> Eliminación-Gaussiana </a> </li>
+                                <li> <a href="#Gauss"> Gauss-Jordan </a> </li>
+                                <li> <a href="#Seidel"> Gauss-Seidel </a> </li> 
+                                <li> <a href="#Jacobi"> Método de Jacobi </a> </li> 
                             </ul>
                     </ul>
                 </nav>
@@ -41,9 +40,9 @@ Aplica los métodos numéricos para resolver problemas científicos y de ingenie
 Aplica los métodos numéricos con el objeto de solucionar ecuaciones mediante los métodos de intervalo e interpolación apoyada de un lenguaje de programación.  
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-<h1 align = "center"> <font  font face = "bauhaus 93">  Sistemas de ecuaciones </font> </h1>
+<h1 align = "center"> <font  font face = "bauhaus 93"> <a name="Sistemas de ecuaciones"> Sistemas de ecuaciones </font></a> </h1>
 
-<h2 align = "center"> <font font face = "forte">  1. Eliminación Gaussiana </h2>
+<h2 align = "center"> <font font face = "forte"><a name="Eliminacion">  1. Eliminación Gaussiana </h2></a>
 
 <h3> <font font face = "arial"> DESCRIPCIÓN: </h3>
 
@@ -111,7 +110,7 @@ public class EliminacionGaussiana {
         }
     }}
     
-<h2 align = "center"> <font font face = "forte">  2.- Gauss-Jordan </h2>
+<h2 align = "center"> <font font face = "forte"> <a name="Gauss">  2.- Gauss-Jordan </h2></a>
 
 <h3> <font font face = "arial"> DESCRIPCIÓN: </h3>
 
@@ -179,7 +178,7 @@ public class GaussJordan {
         }
     }}
     
-<h2 align = "center"> <font font face = "forte">  3.- Gauss-Seidel </h2>
+<h2 align = "center"> <font font face = "forte"> <a name="Seidel">  3.- Gauss-Seidel </h2></a>
 
 <h3> <font font face = "arial"> DESCRIPCIÓN: </h3>
 
@@ -269,7 +268,7 @@ public class GaussSeidel {
         }
     }}
     
-<h2 align = "center"> <font font face = "forte">  4. Jacobi </h2>
+<h2 align = "center"> <font font face = "forte"> <a name="Jacobi">  4. Jacobi </h2></a>
 
 <h3> <font font face = "arial"> DESCRIPCIÓN: </h3>
 
